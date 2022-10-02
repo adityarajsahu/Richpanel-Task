@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<title>Stripe Payment</title>
+<body>
+    <div class="container">
+        <h3 class="text-center font-weight-bold">Welcome to Payment Gateway</h3>
+        <form action="payment" method="POST">
+      </div>
+    
+    <script
+        src="//checkout.stripe.com/v2/checkout.js"
+        class="stripe-button"
+        data-key="<%= key %>"
+        data-amount="<%= amt * 100 %>"
+        data-currency="inr"
+        data-name="Adityaraj Sahu"
+        data-description="Subscribe to our product"
+        data-locale="auto" >
+        </script>
+    </form>
+</body>
+</html>

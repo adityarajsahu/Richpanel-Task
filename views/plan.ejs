@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pricing example · Bootstrap v5.2</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/pricing/">
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/planpage.css" rel="stylesheet">
+  </head>
+  <body>
+    
+
+
+<div class="container py-3">
+  <header>
+    <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+      <h1 class="display-4 fw-normal">Active Plans</h1>
+      <p class="fs-5 text-muted">Watch your favourite shows, nonstop!</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+        <% for(let p of arr) { %>
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm">
+                  <div class="card-header py-3">
+                    <h4 class="my-0 fw-normal"><%= p.name %></h4>
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title pricing-card-title">Video Quality: <%= p.quality %></h5>
+                    <h5 class="card-title pricing-card-title">Resolution: <%= p.resolution %></h5>
+                    <h5 class="card-title pricing-card-title">Devices Supported:</h5>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <% for(let device of p.devices) { %>
+                            <li><%= device %></li>
+                        <% } %>
+                    </ul>
+                    <form action="/plan" method="post">
+                        <label for="monthly-price">Monthly Price (in &#8377)</label>
+                        <input type="submit" name="monthly-price" id="price-button-monthly" class="w-100 btn btn-lg btn-outline-primary" value=<%= (p.price) %>>
+                    </form>
+                    <form action="/plan" method="post">
+                        <label for="annual-price">Annual Price (in &#8377)</label>
+                        <input type="submit" name="annual-price" id="price-button-annual" class="w-100 btn btn-lg btn-outline-primary" value=<%= (p.price * 10) %>>
+                    </form>
+                  </div>
+                </div>
+            </div>
+        <% } %>
+    </div>
+  </main>
+
+  
+</div>
+  </body>
+</html>
