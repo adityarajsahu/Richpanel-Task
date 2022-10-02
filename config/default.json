@@ -1,0 +1,9 @@
+{
+    "adityarajsahu": {
+      "dbConfig": {
+        "host": "localhost",
+        "port": 5984,
+        "dbName": "mongodb+srv://adityarajsahu:4G6ueU9qSFtwMNku@cluster0.tcrdocg.mongodb.net/?retryWrites=true&w=majority"
+      }
+    }
+  }
