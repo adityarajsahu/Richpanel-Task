@@ -1,6 +1,5 @@
 const express = require('express');
 const app = express();
-const http = require('http').createServer(app);
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const session = require('express-session');
@@ -110,11 +109,8 @@ app.get('/confirm', (req, res) => {
     res.render('confirm')
 })
 
+let server_port = process.env.YOUR_PORT || process.env.PORT || 3000;
 
-
-let server_port = process.env.YOUR_PORT || process.env.PORT || 80;
-let server_host = process.env.YOUR_HOST || '0.0.0.0';
-
-http.listen(server_port, server_host, () => {
+app.listen(server_port, () => {
     console.log(`Listening on port ${server_port}`);
 })
