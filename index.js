@@ -7,8 +7,11 @@ const bodyparser = require('body-parser');
 const path = require('path');
 const User = require('./models/user');
 const Plan = require('./models/plan');
+const config = require('config');
 
-mongoose.connect('mongodb://localhost:27017/auth', {useNewUrlParser: true}).then(
+const dbConfig = config.get('adityarajsahu.dbConfig.dbName');
+
+mongoose.connect('mongodb+srv://adityarajsahu:4G6ueU9qSFtwMNku@cluster0.tcrdocg.mongodb.net/?retryWrites=true&w=majority', {useNewUrlParser: true}).then(
     () => {
         console.log("MONGO CONNECTION OPEN!!!")
     }).catch(
@@ -108,6 +111,6 @@ app.get('/confirm', (req, res) => {
 
 
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log("SERVING YOUR APP...");
 })
